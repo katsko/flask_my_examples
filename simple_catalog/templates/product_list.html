@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple catalog: products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        {% for product in product_list %}
+            <li><a href="{{ url_for('products_app.product', product_id=loop.index) }}">{{ product }}</a>
+        {% endfor %}
+    </ul>
+</body>
+</html>
