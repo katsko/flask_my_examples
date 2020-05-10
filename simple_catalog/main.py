@@ -2,7 +2,7 @@
 from flask import Flask, render_template
 
 from products_views import products_app
-from storage import PRODUCTS
+from storage import Products
 
 
 app = Flask(__name__)
@@ -11,10 +11,9 @@ app.register_blueprint(products_app, url_prefix='/products/')
 
 @app.route('/')
 def index_page(name=None, user_id=None):
-    products = PRODUCTS
     response = render_template(
         'index.html',
-        count=len(products),
+        count=len(Products()),
     )
     return response
 
